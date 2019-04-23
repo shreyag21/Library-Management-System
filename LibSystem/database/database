@@ -1,0 +1,34 @@
+drop table if exists event;
+create table event(
+	event_id int NOT NULL AUTO_INCREMENT,
+	title text NOT NULL,
+	description text NOT NULL,
+	time DATETIME NOT NULL,
+	PRIMARY KEY (event_id)
+);
+
+drop table if exists category;
+create table category(
+	cat_id int NOT NULL AUTO_INCREMENT,
+	cat VARCHAR(40) NOT NULL,
+	PRIMARY KEY (cat_id) 
+);
+
+drop table if exists reference;
+create table reference(
+	event_id int NOT NULL,
+	cat_id int NOT NULL,
+	FOREIGN KEY (event_id) REFERENCES event(event_id) ON DELETE CASCADE,
+	FOREIGN KEY (cat_id) REFERENCES category(cat_id)  ON DELETE CASCADE
+);
+
+drop table if exists admins;
+create table admins(
+	user_id int NOT NULL	
+	);
+
+Insert into category(cat) values("General");
+Insert into category(cat) values("Technical Clubs");
+Insert into category(cat) values("Sports");
+Insert into category(cat) values("T&P");
+Insert into category(cat) values("Culturals");
