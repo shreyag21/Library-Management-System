@@ -1,0 +1,9 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background : url(pic3.png);
+	background-size: cover;
+	background-position: absolute;
+	font-family: sans-serf;
+}
